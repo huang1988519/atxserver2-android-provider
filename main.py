@@ -254,6 +254,7 @@ async def device_watch(allow_remote: bool = False):
                     "udid": udid,
                     "platform": "android",
                     "colding": False,
+                    "online": True,
                     "provider": device.addrs(),
                     "properties": await device.properties(),
                 })  # yapf: disable
@@ -272,6 +273,7 @@ async def device_watch(allow_remote: bool = False):
 
             await hbconn.device_update({
                 "udid": udid,
+                "online": True,
                 "provider": None,  # not present
             })
 
