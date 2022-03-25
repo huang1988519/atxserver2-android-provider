@@ -170,7 +170,7 @@ class AndroidDevice(object):
             '-p',
             str(self._adb_remote_port), self._serial
         ],
-                            silent=True)
+                            silent=False)
 
     def addrs(self):
         def port2addr(port):
@@ -208,7 +208,7 @@ class AndroidDevice(object):
                      local_port)
         self.run_background([
             'node', 'tcpproxy.js',
-            str(listen_port), 'localhost',
+            str(listen_port), '127.0.0.1',
             str(local_port)
         ],
                             silent=True)
